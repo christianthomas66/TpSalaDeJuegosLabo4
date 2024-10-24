@@ -1,0 +1,19 @@
+	<h2 class="text-center" style="margin-top: 15px; margin-bottom: 10px;">Osu 2.0!⭕ </h2>
+	<div class="d-flex justify-content-center">
+		<p>{{mensajeJugador}}</p>
+	</div>
+	
+	<div class="divJuego">
+	   
+		<div class="contenedor">
+			<div id="player" (click)="sumarPuntos()"></div>
+		</div>
+	</div>
+	<div class="divPuntaje">
+		<span id="puntos" style=" color: aliceblue;">Puntos:{{puntos}}</span>
+		<span id="tiempo" style=" color: aliceblue;">Tiempo:{{tiempo}}</span>
+		<button type="button"  (click)="comenzarJuego()">Reintentar</button>
+	</div>
+
+
+

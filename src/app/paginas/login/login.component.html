@@ -1,0 +1,62 @@
+<section class="container ">
+  <article class="articleLogin shadow">
+    <form action="#" >
+      <h1>Log In</h1>
+      <button class="buttonDatos" (click)="CompletarDatos()"><span style="font-weight:normal;">Entrar como invitado</span></button>
+      <button class="buttonDatos" (click)="IrAlRegistro()"><span style="font-weight: normal;">Registrarme</span></button>
+
+      <input type="email" placeholder="Email" [(ngModel)]="this.miUsuario.email" name="email"/>
+      <input type="password" placeholder="Password" [(ngModel)]="this.miUsuario.contrasenia" name="pwd"  />
+      
+       <!--Error xd-->
+      <p *ngIf="responseMessage" class="divpError">{{responseMessage}}</p>
+
+      <button class="buttonLogIn" (click)="Ingresar()">Ingresar</button>
+    </form>
+  </article>
+  <article class="imagen shadow">
+    <img class='imagLogin'src="../../../assets/astroLogin.jpg" alt="">
+  </article>
+</section>
+
+
+
+
+
+  <!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>Create Account</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>or use your email for registration</span>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button>Sign Up</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Logueate</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f">icono</i></a>
+        </div>
+        <span>or use your account</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button>Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <img class='imagenLogin'src="../../../assets/astroLogin.png" alt="">
+      
+    </div>
+  </div> -->
+  
+  

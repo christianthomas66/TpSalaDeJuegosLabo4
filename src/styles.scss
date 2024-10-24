@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Asegura que los márgenes y el padding no rompan el diseño */
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-image: url("./assets/espacioFondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+  overflow: hidden; /* Oculta cualquier posible barra de desplazamiento */
+}
+

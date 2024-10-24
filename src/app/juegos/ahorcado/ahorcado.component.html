@@ -1,0 +1,42 @@
+<div class="contenedorJuego" *ngIf="!estaJugando">
+    <button (click)= "obtenerYCrearResultado()">Mandar resultados</button>
+</div>
+
+<div  class="container d-flex flex-column justify-content-center " *ngIf="estaJugando" >
+    <div class="row">
+        <div class="col-md-12 text-center ">
+            <h2 style="margin-top:10px; font-weight: bolder;">AHORCADO</h2>
+            <button style="margin-top: 50px;" class="btn btn-success" type="button" (click)="comenzarJuego()">Reiniciar</button>
+            <h3 style="color: #fff; margin-top:10px;text-shadow: #663A82;">Intentos <small>{{intentosRestantes}}/6</small></h3>
+            <p>{{this.mensajeJugador}}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div *ngFor="let item of cantidadLetrasPalabra" class="d-inline">
+                <h1 class="d-inline p-2" style="color: #fff;">{{item}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 d-flex justify-content-center ">
+            
+            <div class="card" style="border-radius: 15px; width:250px; height:200px; margin-top: 30px"> 
+                <img src='../../../assets/ahorcado/ahorcado_{{this.numeroFoto}}.png' style="height: 100%; width: 100%;">
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    
+    </div>   
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class=" col-md-8 container" style="margin-bottom:10px">
+                <button class="btn text-center shadow boton" style="background-color: #663A82; color: white; font-weight: bold; " *ngFor="let letra of letrasBotones" (click)="letraElegida(letra)"> {{ letra }} </button>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+

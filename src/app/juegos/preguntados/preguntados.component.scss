@@ -1,0 +1,27 @@
+.divPadre{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.divpregunta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preguntas{
+    background-color: antiquewhite;
+    color: darkslategrey;
+}
+.imagen{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.opciones{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,104 @@
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="col-md-7 col-lg-8">
+        <form [formGroup]="forma" (ngSubmit)="obtenerDatosYEnviarEncuesta()">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" style="color: #f7ff0b; text-align: center; font-size: 26px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="floatingInput" placeholder="nombre" formControlName="nombre">
+                <small class="invalid" *ngIf="forma.controls['nombre'].errors?.['required']&& forma.controls['nombre'].touched" style="color:red ;">
+                  El nombre es requerido
+                </small>
+            </div>
+      
+            <div class="col-sm-6">
+              <label for="lastName" style="color: #f7ff0b; text-align: center; font-size: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;">Apellido</label>
+              <input type="text" class="form-control" id="floatingInput" placeholder="apellido" formControlName="apellido">
+                <small class="invalid" *ngIf="forma.controls['apellido'].errors?.['required']&& forma.controls['apellido'].touched" style="color:red ;">
+                  El apellido es requerido
+                </small>
+            </div>
+      
+            <div class="col-12">
+                <label for="username" style="color: #f7ff0b; text-align: center; font-size: 26px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-label">Edad</label>
+                <div class="input-group has-validation">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="edad" formControlName="edad">
+                  <small class="invalid" *ngIf="forma.controls['edad'].errors?.['required']&& forma.controls['edad'].touched" style="color:red ;">
+                    El edad es requerido
+                  </small>
+                  <small class="invalid" *ngIf="forma.controls['edad'].errors?.['min']&& forma.controls['edad'].touched" style="color:red ;">
+                    No puede menor a 18 
+                  </small>
+                  <small class="invalid" *ngIf="forma.controls['edad'].errors?.['max']&& forma.controls['edad'].touched" style="color:red ;">
+                    No puede mayor a 99 
+                  </small>
+                </div>
+              </div>
+      
+            <div class="col-12">
+              <label for="telefono" style="color: #f7ff0b; text-align: center; font-size: 26px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-label">Telefono </label>
+              <input type="text" class="form-control" id="floatingInput" placeholder="telefono" formControlName="telefono">
+              <small class="invalid" *ngIf="forma.controls['telefono'].errors?.['required']&& forma.controls['telefono'].touched" style="color:red ;">
+                El telefono es requerido
+              </small>
+              <small class="invalid" *ngIf="forma.controls['telefono'].errors?.['maxlength']&& forma.controls['telefono'].touched" style="color:red ;">
+                No puede ser mas de 10 caracteres 
+              </small>
+              <small class="invalid" *ngIf="forma.controls['telefono'].errors?.['minlength']&& forma.controls['telefono'].touched" style="color:red ;">
+                No puede ser menos de 10 caracteres 
+              </small>
+              <small class="invalid" *ngIf="forma.controls['telefono'].errors?.['pattern']&& forma.controls['telefono'].touched" style="color:red ;">
+                Solo numeros 
+              </small>
+            </div>
+      
+            
+            <div class="col-md-5">
+              <label for="sexo" style="color: #f7ff0b; text-align: center; font-size: 30px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-label">Sexo</label>
+              <select class="form-select" id="sexo" formControlName="sexo">
+                <option value="">Choose...</option>
+                <option value="feminino">Mujer</option>
+                <option value="masculino">Hombre</option>
+              </select>
+              <small class="invalid" *ngIf="forma.controls['sexo'].errors?.['required']&& forma.controls['sexo'].touched" style="color:red ;">
+                El sexo es requerido
+              </small>
+            </div>
+          </div>
+      
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" value="true" formControlName="recomendar">
+            <label style="color: #f7ff0b; text-align: center; font-size: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" for="same-address" >¿Recomendas la pagina?</label>
+            <small class="invalid" *ngIf="forma.controls['recomendar'].errors?.['required']&& forma.controls['recomendar'].touched" style="color:red ;">
+              Debes recomendar jajajajaja.
+            </small>
+          </div>
+      
+          <hr class="my-4">
+      
+          <h4 style="color: rgb(233, 250, 0);" class="mb-3">Juego favorito</h4>
+      
+          <div class="my-3">
+            <div class="form-check">
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <label style="color: #f7ff0b; text-align: center; font-size: 21px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-check-label" for="credit">Ahorcado</label>
+            </div>
+            <div class="form-check">
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label style="color: #f7ff0b; text-align: center; font-size: 21px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-check-label" for="debit">Osu 2.0!</label>
+            </div>
+            <div class="form-check">
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <label style="color: #f7ff0b; text-align: center; font-size: 21px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-check-label" for="paypal">Mayor menor</label>
+            </div>
+            <div class="form-check">
+                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+                <label style="color: #f7ff0b; text-align: center; font-size: 21px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-check-label" for="paypal">Preguntados</label>
+              </div>
+          </div>
+          <hr class="my-4">
+          <button class="btn btn-primary " type="submit"  [disabled]="forma.invalid">Enviar</button>
+        </form>
+      </div>
+      
+</div>
