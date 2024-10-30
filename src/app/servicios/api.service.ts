@@ -9,6 +9,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   public getPaises(){
-    return this.http.get('https://restcountries.com/v3.1/all');
+    return this.http.get('https://restcountries.com/v3.1/region/America');
   }
 }

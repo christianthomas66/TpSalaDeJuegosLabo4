@@ -1,15 +1,15 @@
 <div class="container">
     <div class="mayorMenor-container text-center">
         <div class="" style="margin-top: 30px;">
-            <button class="btn btn-success  " *ngIf="!comenzar" type="button" (click)="comenzarJuego()">Comenzar</button>
-            <button class="btn btn-success " *ngIf="comenzar" type="button" (click)="reintentarJuego()">Reiniciar</button>
-            <p>{{mensajeJugador}}</p>
+            <!-- <button class="btn btn-success  " *ngIf="!comenzar" type="button" (click)="comenzarJuego()">Comenzar</button> -->
+            <!-- <button class="btn btn-success " *ngIf="comenzar" type="button" (click)="reintentarJuego()">Reiniciar</button> -->
+            <!-- <p *ngIf="!comenzar" style="color: white; font-size: 32px; display: inline-block; padding: 4px 6px;">{{mensajeJugador}}</p> -->
         </div>
         <!-- <div  *ngIf="comenzar" class="row" style="margin-top: 10px; margin-left: 550px;">
             <h1>Puntos: {{this.puntaje}}</h1>
         </div> -->
 
-        <div *ngIf="comenzar" class="row container d-flex justify-content-center" style="margin-top: 10px;">
+        <div class="row container d-flex justify-content-center" style="margin-top: 10px;">
 
             <div class="col-md-2 text-center">
                 <button class="col btn btn-primary " (click)="mayorMenor('menor')">Menor</button>
@@ -30,17 +30,17 @@
 
             
         </div>
-        <div  *ngIf="comenzar" class="row" style="margin-top: 10px; margin-left: 50px;">
+        <div class="row" style="margin-top: 10px; margin-left: 50px; color: white;">
             <h3>Intentos restantes: {{this.intentos}}</h3>
         </div>
-        <div  *ngIf="comenzar" class="row" style="margin-top: 5px; margin-left: 150px;">
+        <!-- <div  *ngIf="comenzar" class="row" style="margin-top: 5px; margin-left: 150px;">
             <h2 class="row">{{this.mensaje}}</h2>
         </div>
         <div  *ngIf="comenzar" class="row" style="margin-top: 5px; margin-left: 150px;">
             <h2 class="row">{{this.mensaje2}}</h2>
-        </div>
+        </div> -->
     </div>
 </div>
-<div *ngIf="!comenzar">
+<!-- <div *ngIf="!comenzar">
     <button (click)="obtenerYCrearResultado()" style="align-content: center;">Mandar resultados</button>
-</div>
+</div> -->

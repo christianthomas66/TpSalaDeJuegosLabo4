@@ -21,7 +21,7 @@
       
             <div class="col-12">
                 <label for="username" style="color: #f7ff0b; text-align: center; font-size: 26px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" class="form-label">Edad</label>
-                <div class="input-group has-validation">
+                <div class="has-validation">
                   <input type="text" class="form-control" id="floatingInput" placeholder="edad" formControlName="edad">
                   <small class="invalid" *ngIf="forma.controls['edad'].errors?.['required']&& forma.controls['edad'].touched" style="color:red ;">
                     El edad es requerido
@@ -67,11 +67,8 @@
           </div>
       
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address" value="true" formControlName="recomendar">
+            <input type="checkbox" class="form-check-input" id="same-address" value="true" (input)="cambiarCheckbox()">
             <label style="color: #f7ff0b; text-align: center; font-size: 20px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;" for="same-address" >¿Recomendas la pagina?</label>
-            <small class="invalid" *ngIf="forma.controls['recomendar'].errors?.['required']&& forma.controls['recomendar'].touched" style="color:red ;">
-              Debes recomendar jajajajaja.
-            </small>
           </div>
       
           <hr class="my-4">

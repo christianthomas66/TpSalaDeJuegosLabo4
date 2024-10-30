@@ -1,6 +1,6 @@
 <div class="padre text-center">
     <h2 style="margin-top:9px ;" >Preguntados🤔❓</h2>
-    <p>{{mensajeJugador}}</p>
+    <p style="color: white; font-size: 24px; display: inline-block; padding: 4px 6px;">{{mensajeJugador}}</p>
     <div class="divpregunta" *ngIf="estaJugando" >
         <div class="preguntas" *ngIf="this.paisElegidoRespuesta">
             <h3>A que pais pertenece esta bandera?</h3>
@@ -13,16 +13,18 @@
             <button type="button" class="btn btn-primary" style="margin-bottom: 5px;" (click)="elegirPais(paisOpcion)">{{paisOpcion.translations.spa.official}}</button>
         </div>
     </div>
+
     <div  *ngIf="!estaJugando">
-        <button (click)="nuevoJuego()" class="btn btn-primary " type="button" id="button-nuevo">
+        <button (click)="nuevoJuego()" class="btn btn-primary" type="button" id="button-nuevo">
                 Nuevo juego</button>
     </div>
-    <div onclick="this.blur();"  *ngIf="estaJugando">
-        <button  (click)="detenerJuego()" class="btn btn-danger " type="button">
-                Finalizar</button>
-    </div>
 
-    <div *ngIf="mostrarR">
+    <!-- <div *ngIf="puntos === puntosTotales">
+        <button  (click)="detenerJuego()" class="btn btn-danger" type="button">
+                Finalizar</button>
+    </div> -->
+
+    <!-- <div *ngIf="mostrarR">
         <button (click)="obtenerYCrearResultado()">Mandar resultados</button>
-    </div>
+    </div> -->
 </div>
