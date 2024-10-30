@@ -1,46 +1,152 @@
 <header class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"></a>
-  
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li>
-            <a href="#" class="nav-link px-2 text-white" > <img class="imagenNav" src="../assets/iconoJ.jpg" alt=""></a>
-          </li>
-          <li *ngIf="estaLogueado">
-            <a href="#" class="nav-link px-2 text-white" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" [routerLink]="['/home']" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';">Home</a>
-          </li>
-          <li *ngIf="estaLogueado">
-            <a href="#" class="nav-link px-2 text-white" [routerLink]="['/quienSoy']"style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';">QuienSoy</a>
-          </li>
-          <li *ngIf="estaLogueado">
-            <a href="#" class="nav-link px-2 text-white" [routerLink]="['/juegos']" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';">Juegos</a>
-          </li>
-          <li *ngIf="estaLogueado">
-            <a href="#" class="nav-link px-2 text-white" [routerLink]="['/chat']" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';">Chat</a>
-          </li>
-          <li *ngIf="estaLogueado">
-            <a href="#" class="nav-link px-2 text-white" [routerLink]="['/encuesta']" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';">Encuesta</a>
-          </li>
-        </ul>
-  
-        <!--Esta prolijo but arreglar-->
-        <div class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" *ngIf=" usuarioLogueado | async as usuarioLogueado">
-          <p class="nav-item">{{usuarioLogueado.email}}</p>
-        </div>
-  
-        <div class="text-end"  *ngIf="usuarioLogueado | async as usuarioLogueado">
-          <button type="button" class="btn btn-outline-light me-2" (click)="CerrarSesion()" [routerLink]="['/login']"> Log Out</button>
-        </div>
+  <div class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+      ></a>
 
-        <div class="text-end" *ngIf="!estaLogueado">
-            <button type="button" class="btn btn-outline-light me-2" [routerLink]="['/registro']">Registro</button>
-            <button type="button" class="btn btn-warning" [routerLink]="['/login']">LogIn</button>
-        </div>
+      <ul
+        class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+      >
+        <li>
+          <a href="#" class="nav-link px-2 text-white">
+            <img class="imagenNav" src="../assets/iconoJ.jpg" alt=""
+          /></a>
+        </li>
+        <li *ngIf="estaLogueado">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="['/home']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >Home</a
+          >
+        </li>
+        <li *ngIf="estaLogueado">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            [routerLink]="['/quienSoy']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >QuienSoy</a
+          >
+        </li>
+        <li *ngIf="estaLogueado">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            [routerLink]="['/juegos']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >Juegos</a
+          >
+        </li>
+        <li *ngIf="estaLogueado">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            [routerLink]="['/chat']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >Chat</a
+          >
+        </li>
+        <li *ngIf="estaLogueado">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            [routerLink]="['/encuesta']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >Encuesta</a
+          >
+        </li>
+        <li *ngIf="estaLogueado && rol == 'administrador'">
+          <a
+            href="#"
+            class="nav-link px-2 text-white"
+            [routerLink]="['/respuesta']"
+            style="
+              border-radius: 10px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(0, 0, 0, 0.3);
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            "
+            onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.3), 0 0 25px rgba(20, 0, 0, 0.3)';"
+            onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 0, 0.3)';"
+            >Respuestas</a
+          >
+        </li>
+      </ul>
 
+      <!--Esta prolijo but arreglar-->
+      <div
+        class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
+        *ngIf="usuarioLogueado | async as usuarioLogueado"
+      >
+        <p class="nav-item">{{ usuarioLogueado.email }}</p>
+      </div>
 
-     
+      <div class="text-end" *ngIf="usuarioLogueado | async as usuarioLogueado">
+        <button
+          type="button"
+          class="btn btn-outline-light me-2"
+          (click)="CerrarSesion()"
+          [routerLink]="['/login']"
+        >
+          Log Out
+        </button>
+      </div>
 
+      <div class="text-end" *ngIf="!estaLogueado">
+        <button
+          type="button"
+          class="btn btn-outline-light me-2"
+          [routerLink]="['/registro']"
+        >
+          Registro
+        </button>
+        <button type="button" class="btn btn-warning" [routerLink]="['/login']">
+          LogIn
+        </button>
       </div>
     </div>
-  </header>
+  </div>
+</header>

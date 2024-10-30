@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EncuestaComponent } from './paginas/encuesta/encuesta.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MoverImagenComponent } from './mover-imagen/mover-imagen.component';
+import { RespuestasComponent } from './paginas/respuestas/respuestas.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MoverImagenComponent } from './mover-imagen/mover-imagen.component';
    ChatComponent,
    EncuestaComponent,
    MoverImagenComponent,
+   RespuestasComponent,
  
   ],
   imports: [

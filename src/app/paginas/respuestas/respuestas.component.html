@@ -1,0 +1,26 @@
+<div>
+  <h1 class="title">Respuestas</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Telefono</th>
+        <th>Sexo</th>
+        <th>Recomendar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of encuesta">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.apellido }}</td>
+        <td>{{ item.edad }}</td>
+        <td>{{ item.telefono }}</td>
+        <td>{{ item.sexo }}</td>
+        <td>{{ item.recomendar ? "Si" : "No" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

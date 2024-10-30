@@ -1,46 +1,107 @@
 <div class="container" id="page-content">
   <div class="padding">
-      <div class="container d-flex justify-content-center">
-<div class="col-md-4">
-           
-            <div class="box box-warning direct-chat direct-chat-warning">
-              <div class="box-header with-border" style="padding-bottom: 0px; margin-bottom:0%">
-                <h3 class="box-title" style="font-weight:bold">Chat Messages</h3>
-                <hr>
-              </div>
-            
-              <div class="box-body">
-                <div class="direct-chat-messages">
-                  <div class="direct-chat-msg" *ngFor="let mensaje of mensajes">
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-4">
+        <div class="box box-warning direct-chat direct-chat-warning">
+          <div
+            class="box-header with-border"
+            style="padding-bottom: 0px; margin-bottom: 0%"
+          >
+            <h3 class="box-title" style="font-weight: bold">Chat Messages</h3>
+            <hr />
+          </div>
 
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name pull-left" style="font-weight:bold;  color:#1F2937 ">{{mensaje?.usuario?.email}}</span>
-                      <span class="direct-chat-timestamp pull-right" style="margin-left: 10px;">{{mensaje?.fecha}}</span>
+          <div class="box-body">
+            <div #chat class="direct-chat-messages">
+              <!-- <main class="msger-chat">
+                <ng-container *ngFor="let mensaje of mensajes">
+                  <div
+                    class="msg"
+                    [ngClass]="
+                      mensaje.type === 'left' ? 'left-msg' : 'right-msg'
+                    "
+                  >
+                    <div class="msg-bubble">
+                      <div class="msg-info">
+                        <span class="msg-info-name">{{
+                          mensaje.usuario.email
+                        }}</span>
+                        <span class="msg-info-time">{{
+                          mensaje.fecha | date : "short"
+                        }}</span>
+                      </div>
+                      <div class="msg-text">{{ mensaje.texto }}</div>
                     </div>
-                    <div class="direct-chat-text">
-                      {{mensaje?.texto}}
-                    </div>
-
-                 </div>
-                </div>
-              </div>
-
-              <div class="box-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" placeholder="Escribe un mensaje"  name="mensaje" [(ngModel)]="mensaje" class="form-control">
-                    <span class="input-group-btn">
-                          <button type="button" class="btn btn-warning btn-flat" (click)="enviarMensaje()">Enviar</button>
-                        </span>
                   </div>
-                </form>
+                </ng-container>
+              </main> -->
+
+              <div class="direct-chat-msg" *ngFor="let mensaje of mensajes">
+                <div
+                  *ngIf="
+                    usuarioLogueado.email !== mensaje?.usuario?.email;
+                    else mostrarUsuarioActual
+                  "
+                >
+                  <div class="container-message">
+                    <div class="header-message">
+                      <span
+                        class=""
+                        style="font-weight: bold; color: #1f2937"
+                        >{{ mensaje?.usuario?.email }}</span
+                      >
+                      <span class="date">{{ mensaje?.fecha }}</span>
+                    </div>
+
+                    <div class="message">
+                      {{ mensaje?.texto }}
+                    </div>
+                  </div>
+                </div>
+
+                <ng-template #mostrarUsuarioActual>
+                  <div class="container-message container-message-right">
+                    <div class="direct-chat-info clearfix">
+                      <span style="font-weight: bold; color: #1f2937">{{
+                        mensaje?.usuario?.email
+                      }}</span>
+                      <span class="date" style="margin-left: 10px">{{
+                        mensaje?.fecha
+                      }}</span>
+                    </div>
+                    <div class="message">
+                      {{ mensaje?.texto }}
+                    </div>
+                  </div>
+                </ng-template>
               </div>
-           
             </div>
-         
           </div>
-           </div>
-          
-            </div>
-           
+
+          <div class="box-footer">
+            <form action="#" method="post">
+              <div class="input-group">
+                <input
+                  type="text"
+                  placeholder="Escribe un mensaje"
+                  name="mensaje"
+                  [(ngModel)]="mensaje"
+                  class="form-control"
+                />
+                <span class="input-group-btn">
+                  <button
+                    type="button"
+                    class="btn btn-warning btn-flat"
+                    (click)="enviarMensaje()"
+                  >
+                    Enviar
+                  </button>
+                </span>
+              </div>
+            </form>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

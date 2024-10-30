@@ -1,29 +1,56 @@
-<section class="container ">
+<section class="container">
   <article class="articleLogin shadow">
-    <form action="#" >
+    <form action="#">
       <h1>Log In</h1>
-      <button class="buttonDatos" (click)="CompletarDatos()"><span style="font-weight:normal;">Entrar como invitado</span></button>
-      <button class="buttonDatos" (click)="IrAlRegistro()"><span style="font-weight: normal;">Registrarme</span></button>
+      <button
+        class="buttonDatos"
+        (click)="CompletarDatos('invitado@hotmail.com', '123456', 'invitado')"
+      >
+        <span style="font-weight: normal">Entrar como invitado</span>
+      </button>
+      <!-- <button
+        class="buttonDatos"
+        (click)="CompletarDatos('usuario@hotmail.com', '123456', 'usuario')"
+      >
+        <span style="font-weight: normal">Entrar como Usuario</span>
+      </button> -->
+      <button
+        class="buttonDatos"
+        (click)="
+          CompletarDatos('administrador@hotmail.com', '123456', 'administrador')
+        "
+      >
+        <span style="font-weight: normal">Entrar como Administrador</span>
+      </button>
+      <button class="buttonDatos" (click)="IrAlRegistro()">
+        <span style="font-weight: normal">Registrarme</span>
+      </button>
 
-      <input type="email" placeholder="Email" [(ngModel)]="this.miUsuario.email" name="email"/>
-      <input type="password" placeholder="Password" [(ngModel)]="this.miUsuario.contrasenia" name="pwd"  />
-      
-       <!--Error xd-->
-      <p *ngIf="responseMessage" class="divpError">{{responseMessage}}</p>
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="this.miUsuario.email"
+        name="email"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="this.miUsuario.contrasenia"
+        name="pwd"
+      />
+
+      <!--Error xd-->
+      <p *ngIf="responseMessage" class="divpError">{{ responseMessage }}</p>
 
       <button class="buttonLogIn" (click)="Ingresar()">Ingresar</button>
     </form>
   </article>
   <article class="imagen shadow">
-    <img class='imagLogin'src="../../../assets/astroLogin.jpg" alt="">
+    <img class="imagLogin" src="../../../assets/astroLogin.jpg" alt="" />
   </article>
 </section>
 
-
-
-
-
-  <!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+<!-- <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
   <div class="container" id="container">
     <div class="form-container sign-up-container">
       <form action="#">
@@ -58,5 +85,3 @@
       
     </div>
   </div> -->
-  
-  
