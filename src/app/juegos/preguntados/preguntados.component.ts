@@ -96,7 +96,7 @@ export class PreguntadosComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Perdiste :c',
-        text: 'Perdiste pero igual se mandaron los resultados je',
+        text: 'Perdiste pero igual se mandaron los resultados!!!',
       });
 
       this.mandarResultados(false);
@@ -162,7 +162,7 @@ export class PreguntadosComponent implements OnInit {
     Swal.fire({
       icon: 'error',
       title: 'Perdiste :c',
-      text: 'Perdiste pero igual se mandaron los resultados je',
+      text: 'Perdiste pero igual se mandaron los resultados!!!',
     });
 
     this.mandarResultados(false);

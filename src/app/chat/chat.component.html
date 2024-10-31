@@ -87,11 +87,13 @@
                   name="mensaje"
                   [(ngModel)]="mensaje"
                   class="form-control"
+                  (keydown)="onInput($event)"
                 />
                 <span class="input-group-btn">
                   <button
                     type="button"
                     class="btn btn-warning btn-flat"
+                    [disabled]="!validateMessage(mensaje)"
                     (click)="enviarMensaje()"
                   >
                     Enviar

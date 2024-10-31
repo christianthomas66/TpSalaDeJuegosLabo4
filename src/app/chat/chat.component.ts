@@ -8,6 +8,7 @@ import { AuthService } from '../servicios/auth.service';
 import * as moment from 'moment';
 import { ChatService } from '../servicios/chat.service';
 import { User } from '@firebase/auth';
+import { Event } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -42,6 +43,12 @@ export class ChatComponent implements OnInit {
     });
   }
 
+  onInput(e: any) {
+    if (e.key === 'Enter') {
+      this.enviarMensaje();
+    }
+  }
+
   enviarMensaje() {
     let fecha = moment(new Date()).format('DD-MM-YYYY HH:mm:ss');
     let mensaje = {
@@ -53,16 +60,18 @@ export class ChatComponent implements OnInit {
       fecha: fecha,
     };
 
-    // this.messages.push({
-    //   text: this.mensaje,
-    //   fecha: new Date(),
-    //   nombreUsuario: this.usuarioLogueado.email,
-    //   type: 'right',
-    // });
+    console.log(this.validateMessage(this.mensaje));    
 
-    // this.mensajes.push(mensaje);
+    if (this.validateMessage(this.mensaje)) {
+      this.chatService.guardarMensaje(mensaje);
+    }
 
-    this.chatService.guardarMensaje(mensaje);
     this.mensaje = '';
+  }
+
+  validateMessage(message: string): boolean {
+    const regex = new RegExp('^(?!\\s)(?!$).+');
+
+    return regex.test(message);
   }
 }

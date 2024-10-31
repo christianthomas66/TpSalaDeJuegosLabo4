@@ -76,7 +76,7 @@ export class MiJuegoComponent implements OnInit {
           if (this.tiempo == 0 && this.puntos < 40)
           {
 
-            this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!';
+            this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!!!';
             this.obtenerYCrearResultado();
             this.termino=true;
             this.tiempo = 0;
