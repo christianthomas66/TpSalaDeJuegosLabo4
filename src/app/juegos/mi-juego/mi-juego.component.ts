@@ -28,6 +28,13 @@ export class MiJuegoComponent implements OnInit {
     email:'',
     id:0
   }
+
+  enJuego: boolean = false;
+
+  private intervaloId: any;
+
+  public contador: number = 0;
+
   constructor(private firebase :AuthService) 
   { 
     firebase.getCurrentUser().subscribe(res=>{
@@ -38,53 +45,129 @@ export class MiJuegoComponent implements OnInit {
       }
     })
   }
+
   ngOnInit(): void {
-    this.comenzarJuego();
-  }
- 
-  comenzarJuego()
-  {
-   this.estaJugando = true;
-   this.tiempo = 20;
-   this.puntos = 0;
+    // this.comenzarJuego();
   }
 
+  comenzarJuego() {
+    this.estaJugando = true;
+    this.tiempo = 20;
+    this.puntos = 0;
+    this.mensajeJugador = '';
 
+    this.temporizador();
+  }
 
- sumarPuntos(){
-   if(this.estaJugando)
-   {
-     this.puntos++;
-     this.pelota = document.getElementById("player");
-     this.pelota.style.marginLeft = Math.round(Math.random()*270) + "px";
-     this.pelota.style.marginTop = Math.round(Math.random()*270) + "px";
-      if (this.puntos == 40) 
-      {
-      this.mensajeJugador = 'Ganaste 😎, se mandaron los resultados!';
-      this.obtenerYCrearResultado();
-       this.estaJugando = false;
-       this.tiempo =0;
-       this.termino=true;
-       this.gano=true;
+  efectoRebote() {
+    this.pelota = document.getElementById("player");
+  
+    this.pelota.style.marginLeft = Math.round(Math.random()*270) + "px";
+    this.pelota.style.marginTop = Math.round(Math.random()*270) + "px";
+    
+  }
+
+  onClick() {
+    if (this.tiempo !== 0) {
+      this.efectoRebote();
+  
+      this.puntos++;
+  
+      if (this.puntos >= 15) {
+        this.estaJugando = false;
+        this.tiempo = 0;
+        this.termino=true;
+        this.gano=true;
+        this.obtenerYCrearResultado();
       }
-   }
-}
+    }
+  }
 
-  contador :any = interval(1000).subscribe((n)=>{
-    if(this.tiempo > 0){
-          this.tiempo--;
-          if (this.tiempo == 0 && this.puntos < 40)
-          {
+  jugarDeNuevo() {
+    this.estaJugando = true;
+    this.tiempo = 20;
+    this.puntos = 0;
+    this.mensajeJugador = '';
+  }
 
-            this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!!!';
-            this.obtenerYCrearResultado();
-            this.termino=true;
-            this.tiempo = 0;
-            this.puntos = 0;
-            this.estaJugando = false;
-          }
-        }
-   });
+  temporizador() {
+    if (this.intervaloId) {
+      return;
+    }
+
+    this.intervaloId = setInterval(() => {
+      this.tiempo--;
+
+      if (this.puntos < 15 && this.tiempo < 0) {
+        this.mensajeJugador = 'No lograste los puntos suficientes para ganar 😞, haz mas de 15 puntos y ganaras, intenta de nuevo!!';
+      } else {
+        this.mensajeJugador = '';
+      }
+
+      if(this.tiempo < 0){
+        this.detener();
+
+        this.termino = true;
+        this.tiempo = 0;
+        this.puntos = 0;
+        this.estaJugando = false;
+      }
+      
+    }, 1000);
+      // interval(1000).subscribe((n)=>{
+      //   if(this.tiempo > 0){
+      //         this.tiempo--;
+
+      //         // if (this.tiempo == 0 && this.puntos <= 15) // LA DERROTA SI ES MENOR A 15
+      //         // {
+
+      //         //   this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!!!';
+      //         //   this.obtenerYCrearResultado();
+      //         //   this.termino=true;
+      //         //   this.tiempo = 0;
+      //         //   this.puntos = 0;
+      //         //   this.estaJugando = false;
+      //         // }
+      //       }
+      // });
+  }
+
+
+
+//  sumarPuntos(){
+//    if(this.estaJugando)
+//    {
+//      this.puntos++;
+//      this.pelota = document.getElementById("player");
+//      this.pelota.style.marginLeft = Math.round(Math.random()*270) + "px";
+//      this.pelota.style.marginTop = Math.round(Math.random()*270) + "px";
+//       if (this.puntos < 15) //MODIFIQUE ESTAS PARA QUE SEA JUSTO (? LA VICTORIA SI ES MAYOR A 15
+//       {
+//       this.mensajeJugador = 'Ganaste 😎, se mandaron los resultados!';
+//       this.obtenerYCrearResultado();
+//        this.estaJugando = false;
+//        this.tiempo =0;
+//        this.termino=true;
+//        this.gano=true;
+//       }
+//    }
+// }
+
+  // contador :any = interval(1000).subscribe((n)=>{
+  //   if(this.tiempo > 0){
+  //         this.tiempo--;
+  //         if (this.tiempo == 0 && this.puntos < 15) // LA DERROTA SI ES MENOR A 15
+  //         {
+
+  //           this.mensajeJugador = 'Perdiste😞, se mandaron los resultados!!!';
+  //           this.obtenerYCrearResultado();
+  //           this.termino=true;
+  //           this.tiempo = 0;
+  //           this.puntos = 0;
+  //           this.estaJugando = false;
+  //         }
+  //       }
+  //  });
 
    obtenerYCrearResultado()
    {
@@ -101,15 +184,24 @@ export class MiJuegoComponent implements OnInit {
      this.firebase.sendUserResultado('Osu 2.0Resultados',resultado).then(res=>{
       Swal.fire({
         title: "Osu 2.0",
-        text: "Se mandaron los resultados con éxito!!!",
+        text: "Ganaste 😎, se mandaron los resultados!",
+        // text: "Se mandaron los resultados con éxito!!!",
         icon: "success"
       });
        console.log('se mandaron(?');
-       this.mensajeJugador='Se mandaron los resultados!👌';
+      //  this.mensajeJugador='Se mandaron los resultados!👌';
      }).catch(err=>{
        console.log('no se mando nada xd')
      })
    }
  
+    detener(): void {
+      clearInterval(this.intervaloId);
 
+      this.intervaloId = null;
+    }
+
+    ngOnDestroy(): void {
+      this.detener();
+    }
 }

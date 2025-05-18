@@ -1,19 +1,46 @@
 	<h2 class="text-center" style="margin-top: 15px; margin-bottom: 10px; color: yellow;">OSU 2.0⭕ </h2>
-	<div class="d-flex justify-content-center">
+	<div class="d-flex justify-content-center message">
 		<p>{{mensajeJugador}}</p>
 	</div>
-	
-	<div class="divJuego">
-	   
-		<div class="contenedor">
-			<div id="player" (click)="sumarPuntos()"></div>
+
+	<div class="wrapper">
+		<div class="game">
+			<div id="player" (click)="onClick()"></div>
+		</div>
+		<div class="divPuntaje">
+			<span id="puntos" style=" color: aliceblue;">Puntos:{{puntos}}</span>
+			<span id="tiempo" style=" color: aliceblue;">Tiempo:{{tiempo}}</span>
+
+			<div *ngIf="!enJuego && tiempo == 0">
+				<button type="button" class="button" (click)="comenzarJuego()">Jugar</button>
+			</div>
+
+			<!-- <div *ngIf="enJuego; else otroBloque">
+				<button type="button" class="button" (click)="comenzarJuego()">Jugar</button>
+			</div> -->
+			
+			<!-- <ng-template #otroBloque>
+				<button type="button" class="button" (click)="jugarDeNuevo()">Reintentar</button>
+			</ng-template> -->
 		</div>
 	</div>
-	<div class="divPuntaje">
-		<span id="puntos" style=" color: aliceblue;">Puntos:{{puntos}}</span>
-		<span id="tiempo" style=" color: aliceblue;">Tiempo:{{tiempo}}</span>
-		<button type="button"  (click)="comenzarJuego()">Reintentar</button>
-	</div>
+	
+	<!-- <div class="wrapper">
+		<div>
+			<div class="divJuego">
+			   
+				<div class="contenedor">
+					<div id="player" (click)="sumarPuntos()"></div>
+				</div>
+			</div>
+			<div class="divPuntaje">
+				<span id="puntos" style=" color: aliceblue;">Puntos:{{puntos}}</span>
+				<span id="tiempo" style=" color: aliceblue;">Tiempo:{{tiempo}}</span>
+				<button type="button"  (click)="comenzarJuego()">Reintentar</button>
+			</div>
+		</div>
+	</div> -->
+	
 
 
 

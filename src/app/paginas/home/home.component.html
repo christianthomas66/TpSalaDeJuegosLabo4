@@ -1,15 +1,27 @@
 <!-- <app-nav-bar></app-nav-bar> -->
+<!-- <main [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet">
+
+  </router-outlet>
+</main> -->
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column quienSoy ">
     <main class="px-3">
       <h1 style="font-weight: bold; color: white;">Bienvenido a la Sala de Juegos</h1>
-      <p class="lead" style="color: #f7ff0b; text-align: center; font-size: 50px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;">Trabajo Practico de Labo IV</p>
+      <p class="lead" style="color: #f7ff0b; text-align: center; text-align: left; font-size: 50px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); transition: transform 0.3s ease, box-shadow 0.3s ease;">Trabajo Practico de Labo IV</p>
 
-      
-      <div id="image-container">
-        <img src="../../../assets/joystick.jpg" style="width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 255, 255, 1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8)';">      
+      <p class="title" style="text-align: center;">Sumérgete en un mundo de juegos diversos y emocionantes</p>              
+
+
+      <div class="wrapper">
+        <a routerLink="/juegos" class="btn-home">
+          <div id="image-container">
+            <img src="../../../assets/joystick.jpg" alt="click" style="width: 300px; border-radius: 50px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 12px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 255, 255, 1)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8)';">      
+          </div>
+        </a>
       </div>
       
       </main>
+
       
     <!--footer class="mt-auto text-white-50">
        

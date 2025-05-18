@@ -22,8 +22,8 @@ export class EncuestaComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private firebase: AuthService) {
     this.forma = this.fb.group({
-      nombre: ['', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]],
-      apellido: ['', [Validators.pattern('^[a-zA-Z]+$'), Validators.required]],
+      nombre: ['', [Validators.pattern('^[A-Za-z]+(?: [A-Za-z]+)?$'), Validators.required], Validators.maxLength(25), Validators.minLength(10)],
+      apellido: ['', [Validators.pattern('^[A-Za-z]+(?: [A-Za-z]+)?$'), Validators.required], Validators.maxLength(25), Validators.minLength(10)],
       edad: ['', [Validators.required, Validators.min(18), Validators.max(99)]],
       telefono: [
         '',

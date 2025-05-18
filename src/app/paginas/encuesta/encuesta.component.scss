@@ -1,0 +1,18 @@
+@keyframes epicSlide {
+    0% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(50vw) scale(1.2);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateX(100vw) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
+  .epic-slide {
+    animation: epicSlide 1s ease-in-out forwards;
+  }

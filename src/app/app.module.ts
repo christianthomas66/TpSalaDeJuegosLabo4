@@ -23,6 +23,10 @@ import { EncuestaComponent } from './paginas/encuesta/encuesta.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MoverImagenComponent } from './mover-imagen/mover-imagen.component';
 import { RespuestasComponent } from './paginas/respuestas/respuestas.component';
+import { RouterModule } from '@angular/router';
+import { JuegosModule } from './juegos/juegos.module';
+import { MiJuegoComponent } from './juegos/mi-juego/mi-juego.component';
+// import { EpicAnimationComponent } from './epic-animation/epic-animation.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +45,15 @@ import { RespuestasComponent } from './paginas/respuestas/respuestas.component';
    EncuestaComponent,
    MoverImagenComponent,
    RespuestasComponent,
+   MiJuegoComponent,
+  //  EpicAnimationComponent,
  
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     FormsModule,
     HttpClientModule,
     FormsModule,

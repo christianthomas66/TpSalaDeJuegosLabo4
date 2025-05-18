@@ -5,6 +5,7 @@
 }
 
 .divJuego{
+	width: 900px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,17 +18,56 @@
     height: 350px;
     //Eran 500 en los dos
     background-color: #ffb;
-    border: 8px dashed #A88EEF;
+    border: 2px dashed #A88EEF;
 }
 
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 40px;
+}
+
+.container {
+	width: 25%;
+	background-color: rgb(106, 127, 245);
+	border-radius: 24px;
+	padding: 28px 20px;
+}
+
+.title {
+	font-weight: 600;
+	margin-bottom: 24px;
+	font-size: 24px;
+	text-align: center;
+	color: white;
+
+}
+
+.game {
+	width: 450px;
+	height: 450px;
+	background-color: #FFFFBB;
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23A88EEFFF' stroke-width='8' stroke-dasharray='18%2c 44' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.item {
+	font-weight: 400;
+	font-size: 16px;
+	color: white;
+}
 
 
 #player {
 	background-color: #F0ABB5;
-	border: 4px dashed #D97789;
-	width: 50px;
-	height: 50px;
-	border-radius: 29px;
+	// border: 4px dashed #D97789;
+	background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='%23EC3463' stroke-width='7' stroke-dasharray='50%25%2c 13%25' stroke-dashoffset='86' stroke-linecap='butt'/%3e%3c/svg%3e");
+border-radius: 100px;
+	width: 65px;
+	height: 65px;
+	// border-radius: 29px;
 	position: absolute;
 	transition: all 0.3s;
 	cursor: pointer;
@@ -55,7 +95,12 @@ span{
 	margin:2px;
 }
 
-button{
+.message {
+	color: #fff;
+	font-size: 16px;
+}
+
+.button{
   border-radius: 4px;
   background-color: #DF087A;
   border: none;
